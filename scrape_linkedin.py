@@ -17,14 +17,16 @@ def fill_id(id, text):
     element.clear()
     element.send_keys(text)
 
-driver = webdriver.PhantomJS()
-driver.get('https://www.linkedin.com/uas/login')
-linkedin_email = '511949487@qq.com'
-linkedin_password = 'Wifihi123'
-fill_id('username', linkedin_email)
-fill_id('password', linkedin_password)
-click_xpath('//button[@type="submit"]')
 
-url = 'https://www.linkedin.com/in/weichao-will-chou-04588832'
-driver.get(url)
-soup = BeautifulSoup(driver.page_source, 'lxml')
+if __name__ == '__main__':
+    driver = webdriver.PhantomJS()
+    driver.get('https://www.linkedin.com/uas/login')
+    linkedin_email = '511949487@qq.com'
+    linkedin_password = 'Wifihi123'
+    fill_id('username', linkedin_email)
+    fill_id('password', linkedin_password)
+    click_xpath('//button[@type="submit"]')
+
+    url = 'https://www.linkedin.com/in/weichao-will-chou-04588832'
+    driver.get(url)
+    soup = BeautifulSoup(driver.page_source, 'lxml')
