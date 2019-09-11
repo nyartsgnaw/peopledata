@@ -32,14 +32,12 @@ def get_target_urls(base_url, driver, size_return=400):
 		urls = get_urls_from_soup(soup)
 		if urls:
 			all_urls += urls
-			if len(urls) > size_return:
-				break
 			time.sleep(np.random.randint(5, 7))
-		else:
-			break
+        if not urls or len(all_urls) > size_return:
+                break
 	return all_urls
 
-def get_GoogleURL(search_term, start=False, domain='.com', quotes=False):
+def get_google_url(search_term, start=False, domain='.com', quotes=False):
 	search_term = search_term.replace(' ', '%20')
 	if quotes:
 		search_term = '%22' + search_term + '%22'
@@ -48,7 +46,7 @@ def get_GoogleURL(search_term, start=False, domain='.com', quotes=False):
 		ggurl = ggurl + '&start=' + str(start)
 	return ggurl
 
-def getLinkedinURL(search_term, driver, size_return=400):
+def get_linkedin_urls(search_term, driver, size_return=400):
 	base_url = get_GoogleURL(search_term + ' site:linkedin.com/in',)
 	urls = get_target_urls(base_url, driver, size_return=size_return)
 	return urls
