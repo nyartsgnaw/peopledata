@@ -33,8 +33,8 @@ def get_target_urls(base_url, driver, size_return=400):
 		if urls:
 			all_urls += urls
 			time.sleep(np.random.randint(5, 7))
-	        if not urls or len(all_urls) > size_return:
-        	        break
+		if (not urls) or (len(all_urls) > size_return):
+			break
 	return all_urls
 
 def get_google_url(search_term, start=False, domain='.com', quotes=False):
