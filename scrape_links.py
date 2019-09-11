@@ -5,7 +5,7 @@ import numpy as np
 from bs4 import BeautifulSoup
 from selenium import webdriver
  
-def get_google_url(search_term, start=False, domain='.com', quotes=False):
+def get_google_base_url(search_term, start=False, domain='.com', quotes=False):
 	search_term = search_term.replace(' ', '%20')
 	if quotes:
 		search_term = '%22' + search_term + '%22'
@@ -32,7 +32,7 @@ def extract_urls_from_soup(soup):
 	return urls
 
 def get_urls_from_google(query, driver, size_return=400):
-	base_url = get_google_url(query)
+	base_url = get_google_base_url(query)
 	all_urls = []
 	for page_start_id in range(0, 100 * int(np.floor(size_return / 10)), 100):
 		urls = []
