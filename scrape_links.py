@@ -15,7 +15,7 @@ def get_google_url(search_term, start=False, domain='.com', quotes=False):
 	return ggurl
 
 def extract_urls_from_soup(soup):
-    	urls = []
+	urls = []
 	links = []
 	tags = ['Cached','Translate this page', 'Similar', 'Account', 'Search', 'Maps', 'YouTube', 'Play', 'News',
 			'Gmail', 'Contacts', 'Drive', 'Calendar', 'Google+', 'Translate', 'Photos', 'More',
@@ -31,7 +31,8 @@ def extract_urls_from_soup(soup):
 	urls = [url.split('&')[0] for url in urls if url.startswith('https://www.linkedin.com/in')]
 	return urls
 
-def scan_google_pages(base_url, driver, size_return=400):
+def get_urls_from_google(query, driver, size_return=400):
+	base_url = get_google_url(query)
 	all_urls = []
 	for page_start_id in range(0, 100 * int(np.floor(size_return / 10)), 100):
 		urls = []
@@ -48,7 +49,6 @@ def scan_google_pages(base_url, driver, size_return=400):
  
 if __name__ == '__main__':
 	driver = webdriver.PhantomJS()
-	base_url = get_google_url('Nankai, Mountainview' + ' site:linkedin.com/in',)
-	urls = scan_google_pages(base_url, driver, size_return=50)
+	urls = get_urls_from_google('Nankai, Mountainview site:linkedin.com/in', driver, size_return=50)
 	print(urls)
 	driver.close()
