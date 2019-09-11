@@ -15,7 +15,7 @@ def get_urls_from_soup(soup):
 			'Maps', 'Flights', 'Search settings', 'Languages', 'Turn on SafeSearch', 'Learn more']
 	for link in soup.findAll('a', attrs={'href': re.compile("http")}):
 		if link.text not in tags:
-			if (link.get('title') == None) & (link.get('data-ved') == None):
+			if not link.get('title') and not link.get('data-ved'):
 				url = re.sub('/url\?q\=', '', link.get('href'))
 				urls.append(url)
 				links.append(link)
@@ -33,7 +33,7 @@ def get_target_urls(base_url, driver, size_return=400):
 		if urls:
 			all_urls += urls
 			time.sleep(np.random.randint(5, 7))
-		if (not urls) or (len(all_urls) > size_return):
+		if not urls or len(all_urls) > size_return:
 			break
 	return all_urls
 
@@ -47,12 +47,12 @@ def get_google_url(search_term, start=False, domain='.com', quotes=False):
 	return ggurl
 
 def get_linkedin_urls(search_term, driver, size_return=400):
-	base_url = get_GoogleURL(search_term + ' site:linkedin.com/in',)
+	base_url = get_google_url(search_term + ' site:linkedin.com/in',)
 	urls = get_target_urls(base_url, driver, size_return=size_return)
 	return urls
  
 if __name__ == '__main__':
 	driver = webdriver.PhantomJS()
-	urls = getLinkedinURL('Nankai, Mountainview', driver, size_return=50)
+	urls = get_linkedin_urls('Nankai, Mountainview', driver, size_return=50)
 	print(urls)
 	driver.close()
