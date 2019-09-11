@@ -5,7 +5,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 
 def click_xpath(xpath):
-    element = WebDriverWait(driver, timeout, poll_frequency).until(
+    element = WebDriverWait(driver, timeout=3, poll_frequency=0.05).until(
         EC.visibility_of_element_located((By.XPATH, xpath))
     )
     element.click()
