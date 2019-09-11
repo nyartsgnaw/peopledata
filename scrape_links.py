@@ -54,8 +54,6 @@ def getLinkedinURL(search_term, driver, size_return=400):
 	return urls
  
 if __name__ == '__main__':
-	PHANTON_PATH = ''
-	os.environ['PATH'] = os.getenv('PATH') + ':' + PHANTON_PATH
 	driver = webdriver.PhantomJS()
 	urls = getLinkedinURL('Nankai, Mountainview', driver, size_return=50)
 	print(urls)
