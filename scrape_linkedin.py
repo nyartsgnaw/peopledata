@@ -22,7 +22,6 @@ def fill_id(id, text):
 
 def parse_linkedin_soup(soup):
     linkedin_data = json.loads(max(soup.strings, key=len).strip('\n').strip())
-
     data = defaultdict(list)
     for i, x in enumerate(linkedin_data['included']):
         if 'view' not in x['$type'].lower() and 'mini' not in x['$type'].lower():
