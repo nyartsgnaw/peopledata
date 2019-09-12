@@ -39,7 +39,7 @@ def init_driver(linkedin_email='511949487@qq.com', linkedin_password='Wifihi123'
 if __name__ == '__main__':
     driver = init_driver()
     input_path = '/tmp/linkedin_profiles/test_google.txt'
-    output_path = '/tmp/linkedin_profiles/test.json'
+    output_path = '/tmp/linkedin_profiles/test_linkedin.json'
     os.system('mkdir -p {}'.format(os.path.dirname(output_path)))
     with open(output_path, 'w') as write_f:
         with open(input_path) as f:
@@ -48,8 +48,7 @@ if __name__ == '__main__':
                 driver.get(url)
                 soup = BeautifulSoup(driver.page_source, 'lxml')
                 data = parse_linkedin_soup(soup)
-                json_data = json.dumps(data, indent=4, sort_keys=True)
-                write_f.write(json_data + '\n')
-                print(json_data)
+                write_f.write(json.dumps(data) + '\n')
+                print(json.dumps(data, indent=4, sort_keys=True))
                 print('\n')
                 print('Profile written to local: {} -> {}'.format(url, output_path))
