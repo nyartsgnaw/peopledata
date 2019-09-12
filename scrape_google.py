@@ -48,7 +48,12 @@ def google_urls_for(query, driver, size_return=400):
 	return all_urls
  
 if __name__ == '__main__':
-	driver = webdriver.PhantomJS()
-	urls = google_urls_for('Nankai, Mountainview site:linkedin.com/in', driver, size_return=50)
-	print(urls)
-	driver.close()
+    driver = webdriver.PhantomJS()
+    urls = google_urls_for('Nankai, Mountainview site:linkedin.com/in', driver, size_return=1000)
+    print(urls) 
+    output_path = '/tmp/linkedin_profiles/test_google.txt'
+    os.system('mkdir -p {}'.format(os.path.dirname(output_path)))
+    with open(output_path, 'w') as f:
+        for url in urls:
+            f.write(url + '\n')
+    driver.close()
