@@ -3,7 +3,7 @@ import re
 import os
 import numpy as np
 from bs4 import BeautifulSoup
-import scraper
+import selenium_scraper
 
 class URLScraper(scraper.SeleniumScraper):
     def __init__(self, site='https://www.linkedin.com/in', domain='.com', strict=False, size_return=400):
