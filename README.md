@@ -1,9 +1,14 @@
 # peopledata
 
-install phantonjs for requirements: https://pythonspot.com/selenium-phantomjs/  
-export phantonjs to $PATH
+initialize environment:
+```
+# install phantonjs for requirements: https://pythonspot.com/selenium-phantomjs/  
+export PATH=$PATH:$CODEPATH/init_env/phantomjs-2.1.1-linux-x86_64/bin
 
-1. run scrape_google.py to get Linkedin URLs
+# activate peopledata environment
+export CODEPATH=$HOME/peopledata
+export PYTHONPATH=$PYTHONPATH:$CODEPATH/lib/
 
-2. run scrape_linkedin.py to get linkedin html
-
+# install python requirements
+pip install -r $CODEPATH/init_env/requirements.txt
+```
