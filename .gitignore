@@ -6,3 +6,4 @@ data/*
 
 # phantomjs log
 ghostdriver.log
+geckodriver.log

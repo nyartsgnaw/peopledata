@@ -1,10 +1,10 @@
 import json
 from collections import defaultdict
 from bs4 import BeautifulSoup
-from scraper import scraper
+from scraper import selenium_scraper
 
 
-class LinkedinScraper(scraper.SeleniumScraper):
+class LinkedinScraper(selenium_scraper.SeleniumScraper):
     def __init__(self, linkedin_email='', linkedin_password=''):
         self.soup = None
         self.driver = None

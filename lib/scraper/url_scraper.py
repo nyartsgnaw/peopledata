@@ -3,9 +3,9 @@ import re
 import os
 import numpy as np
 from bs4 import BeautifulSoup
-from scraper import scraper
+from scraper import selenium_scraper
 
-class URLScraper(scraper.SeleniumScraper):
+class URLScraper(selenium_scraper.SeleniumScraper):
     def __init__(self, site='https://www.linkedin.com/in', domain='.com', strict=False, size_return=400):
         self.urls = []
         self.soup = None
@@ -30,6 +30,8 @@ class URLScraper(scraper.SeleniumScraper):
         if not self.driver:
             self.init_driver()
         self.driver.get(url)
+        # to avoid internet delay
+        # time.sleep(1)
         self.soup = BeautifulSoup(self.driver.page_source, 'lxml')
         tags = ['Cached','Translate this page', 'Similar', 'Account', 'Search', 'Maps', 'YouTube', 'Play', 'News',
                 'Gmail', 'Contacts', 'Drive', 'Calendar', 'Google+', 'Translate', 'Photos', 'More',
