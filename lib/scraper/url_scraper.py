@@ -51,6 +51,7 @@ class URLScraper(scraper.SeleniumScraper):
             ggurl = self.generate_google_api(search_term, page_start_id)
             self.extract_urls(ggurl)
             if n_urls < len(self.urls) and len(self.urls) < self.size_return:
+                n_urls = len(self.urls)
                 time.sleep(np.random.randint(5, 7))
             else:  
                 break
