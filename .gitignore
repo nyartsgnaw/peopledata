@@ -4,6 +4,5 @@
 # data
 data/*
 
-
 # phantomjs log
 ghostdriver.log
