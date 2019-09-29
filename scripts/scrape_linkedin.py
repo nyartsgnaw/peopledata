@@ -5,7 +5,7 @@ from scraper import linkedin_scraper
 
 
 if __name__ == '__main__':
-    linkedin_scraper = linkedin_scraper.LinkedinScraper(linkedin_email='511949487@qq.com', linkedin_password='Wifihi123')
+    linkedin_scraper = linkedin_scraper.LinkedinScraper()
     input_path = '/tmp/linkedin_profiles/test_google.txt'
     output_path = '/tmp/linkedin_profiles/test_linkedin.json'
     os.system('mkdir -p {}'.format(os.path.dirname(output_path)))

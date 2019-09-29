@@ -2,15 +2,15 @@ import json
 from collections import defaultdict
 from bs4 import BeautifulSoup
 from scraper import selenium_scraper
-
+import os
 
 class LinkedinScraper(selenium_scraper.SeleniumScraper):
     def __init__(self, linkedin_email='', linkedin_password=''):
         self.soup = None
         self.driver = None
         self.data = defaultdict(list)
-        self.linkedin_email = linkedin_email
-        self.linkedin_password = linkedin_password
+        self.linkedin_email = linkedin_email if linkedin_email else os.getenv('LINKEDIN_EMAIL')
+        self.linkedin_password = linkedin_password if linkedin_password else os.getenv('LINKEDIN_PASSWORD')
 
     def extract_profile(self, url):
         if not self.driver:
