@@ -25,11 +25,15 @@ python $CODEPATH/scripts/scrape_linkedin.py
 in python terminal
 ```
 import json
-
+import os
 a_list_of_profile_dictionaries = []
-with open('/tmp/linkedin_profiles/test_linkedin.json') as f:
+with open(os.path.join(os.getenv('CODEPATH'),'data/cache/linkedin_profiles.json')) as f:
     for line in f:
-        print('{} profiles read'.format(len(a_list_of_profile_dictionaries)))
         a_list_of_profile_dictionaries.append(json.loads(line.split('\n')[0]))
-        
+```
+### add key to use google geocode: https://developers.google.com/maps/documentation/geocoding/start
+
+```
+export GOOGLE_API_KEY={YOUR_OWN_KEY_IN_GOOGLE_CLOUD_PLATFORM}
+
 ```

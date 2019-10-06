@@ -2,3 +2,4 @@ selenium==3.141.0
 webdriverdownloader==1.0.0.1
 pathlib==1.0.1
 numpy==1.15.1
+tqdm==4.23.4

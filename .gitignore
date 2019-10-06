@@ -2,7 +2,7 @@
 *.pyc
 
 # data
-data/*
+data/cache/*
 
 # phantomjs log
 ghostdriver.log

@@ -24,5 +24,8 @@ class LinkedinScraper(selenium_scraper.SeleniumScraper):
 
     #todo: write profile class
     def get_profile(self, url):
+        if not url:
+            return
         self.extract_profile(url)
+        print(json.dumps(self.data, indent=4, sort_keys=True))
         return self.data

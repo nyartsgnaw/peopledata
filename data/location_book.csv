@@ -1,0 +1,107 @@
+City,Country,Population,State
+Alameda,US,73812,CA
+Albany,US,18539,CA
+American Canyon,US,19454,CA
+Antioch,US,102372,CA
+Atherton,US,6914,CA
+Belmont,US,25835,CA
+Belvedere,US,2068,CA
+Benicia,US,26997,CA
+Berkeley,US,112580,CA
+Brentwood,US,51481,CA
+Brisbane,US,4282,CA
+Burlingame,US,28806,CA
+Calistoga,US,5155,CA
+Campbell,US,39349,CA
+Clayton,US,10897,CA
+Cloverdale,US,8618,CA
+Colma,US,1792,CA
+Concord,US,122067,CA
+Corte Madera,US,9253,CA
+Cotati,US,7265,CA
+Cupertino,US,58302,CA
+Daly City,US,101123,CA
+Danville,US,42039,CA
+Dixon,US,18351,CA
+Dublin,US,46036,CA
+East Palo Alto,US,28155,CA
+El Cerrito,US,23549,CA
+Emeryville,US,10080,CA
+Fairfax,US,7441,CA
+Fairfield,US,105321,CA
+Foster City,US,30567,CA
+Fremont,US,214089,CA
+Gilroy,US,48821,CA
+Half Moon Bay,US,11324,CA
+Hayward,US,144186,CA
+Healdsburg,US,11254,CA
+Hercules,US,24060,CA
+Hillsborough,US,10825,CA
+Lafayette,US,23893,CA
+Larkspur,US,11926,CA
+Livermore,US,80968,CA
+Los Altos,US,28976,CA
+Los Altos Hills,US,7922,CA
+Los Gatos,US,29413,CA
+Martinez,US,35824,CA
+Menlo Park,US,32026,CA
+Mill Valley,US,13903,CA
+Millbrae,US,21532,CA
+Milpitas,US,66790,CA
+Monte Sereno,US,3341,CA
+Moraga,US,16016,CA
+Morgan Hill,US,37882,CA
+Mountain View,US,74066,CA
+Napa,US,76915,CA
+Newark,US,42573,CA
+Novato,US,51904,CA
+Oakland,US,390724,CA
+Oakley,US,35432,CA
+Orinda,US,17643,CA
+Pacifica,US,37234,CA
+Palo Alto,US,64403,CA
+Petaluma,US,57941,CA
+Piedmont,US,10667,CA
+Pinole,US,18390,CA
+Pittsburg,US,63264,CA
+Pleasant Hill,US,33152,CA
+Pleasanton,US,70285,CA
+Portola Valley,US,4353,CA
+Redwood City,US,76815,CA
+Richmond,US,103701,CA
+Rio Vista,US,7360,CA
+Rohnert Park,US,40971,CA
+Ross,US,2415,CA
+St. Helena,US,5814,CA
+San Anselmo,US,12336,CA
+San Bruno,US,41114,CA
+San Carlos,US,28406,CA
+San Francisco,US,805235,CA
+San Jose,US,945942,CA
+San Leandro,US,84950,CA
+San Mateo,US,97207,CA
+San Pablo,US,29139,CA
+San Rafael,US,57713,CA
+San Ramon,US,72148,CA
+Santa Clara,US,116468,CA
+Santa Rosa,US,167815,CA
+Saratoga,US,29926,CA
+Sausalito,US,7061,CA
+Sebastopol,US,7379,CA
+Sonoma,US,10648,CA
+South San Francisco,US,63632,CA
+Suisun City,US,28111,CA
+Sunnyvale,US,140081,CA
+Tiburon,US,8962,CA
+Union City,US,69516,CA
+Vacaville,US,92428,CA
+Vallejo,US,115942,CA
+Walnut Creek,US,64173,CA
+Windsor,US,26801,CA
+Woodside,US,5287,CA
+Yountville,US,2933,CA
+The Bronx,US,1471160,NYC
+Brooklyn,US,2648771,NYC
+Manhattan,US,1664727,NYC
+Queens,US,2358582,NYC
+Staten Island,US,479458,NYC
