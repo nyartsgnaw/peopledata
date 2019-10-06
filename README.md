@@ -26,10 +26,8 @@ in python terminal
 ```
 import json
 import os
-a_list_of_profile_dictionaries = []
 with open(os.path.join(os.getenv('CODEPATH'),'data/cache/linkedin_profiles.json')) as f:
-    for line in f:
-        a_list_of_profile_dictionaries.append(json.loads(line.split('\n')[0]))
+    a_dict_of_profile_dicts = json.loads(f.read())
 ```
 ### add key to use google geocode: https://developers.google.com/maps/documentation/geocoding/start
 

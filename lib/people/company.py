@@ -1,4 +1,4 @@
-class Company(self):
+class Company(object):
     def __init__(self):
         self.data = ''
         pass

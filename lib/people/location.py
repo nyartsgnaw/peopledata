@@ -1,4 +1,4 @@
-class Location(self):
+class Location(object):
     def __init__(self):
         self.data = ''
         pass
