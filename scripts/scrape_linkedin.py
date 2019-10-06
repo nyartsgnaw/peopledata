@@ -1,18 +1,19 @@
 import json
 import os
+from tqdm import tqdm
 from collections import defaultdict
 from scraper import linkedin_scraper
-from tqdm import tqdm
-from models import linkedin_urls, init_env, linkedin_profiles
+from utils import file_cache
 
 if __name__ == '__main__':
-    init_env.loads()
     lscraper = linkedin_scraper.LinkedinScraper()
-    if not linkedin_urls:
+    if not file_cache.cache['linkedin_urls']:
         raise(Exception('Run scrape_google.py first since you don\' have any scraped urls cached at ./data/cache/linkedin_urls.txt'))
-    linkedin_profiles = {}
-    for url in tqdm(linkedin_urls):
+    for url in tqdm(file_cache.get_linkedin_urls()):
+        if url in file_cache.cache['linkedin_profiles']:
+            continue
+        linkedin_profiles = {}
         data = lscraper.get_profile(url)
         if data:
             linkedin_profiles[url] = data
-            init_env.update_linkedin_profiles_cache(linkedin_profiles)
+            file_cache.update_local_json_cache(linkedin_profiles, 'linkedin_profiles')

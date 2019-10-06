@@ -1,3 +1,4 @@
+import glog
 import time
 import re
 import os
@@ -57,5 +58,5 @@ class URLScraper(selenium_scraper.SeleniumScraper):
 				time.sleep(np.random.randint(5, 15))
 			else:  
 				break
-		print('Got {} results from {}'.format(len(self.urls), search_term))
+		glog.info('Got {} results from {}'.format(len(self.urls), search_term))
 		return self.urls

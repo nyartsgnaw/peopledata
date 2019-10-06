@@ -1,18 +1,25 @@
-from scraper import url_scraper
 import os
+import glog
 import pandas as pd
-from models import location_book, init_env
 from tqdm import tqdm
+from utils import file_cache
+from scraper import url_scraper
 
 def get_search_term(d):
-	return ', '.join(['Nankai', d['City'], d['State'], d['Country']])
+	return ', '.join(['\"Nankai\"', d['City'], d['State'], d['Country']])
 
 if __name__ == '__main__':
-	init_env.loads()
 	uscraper = url_scraper.URLScraper(site='https://www.linkedin.com/in', domain='.com', strict=False, size_return=400)
-	for d in tqdm(location_book):
+	for d in tqdm(file_cache.get_location_book()):
+		linkedin_urls = {}
+		search_term = get_search_term(d)
 		if d['Population'] < 70000:
+			glog.info('Skipping {} for small population'.format(search_term))
 			continue
-		urls = uscraper.get_urls(get_search_term(d))
+		if search_term in file_cache.cache['linkedin_urls']:
+			glog.info('Skipping searched term {}'.format(search_term))
+			continue
+		urls = uscraper.get_urls(search_term)
 		if any(urls):
-			init_env.update_linked_urls_cache(urls)
+			linkedin_urls[search_term] = urls
+			file_cache.update_local_json_cache(linkedin_urls, 'linkedin_urls')

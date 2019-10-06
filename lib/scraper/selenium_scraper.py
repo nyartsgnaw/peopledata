@@ -1,3 +1,5 @@
+import glog
+import os
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.by import By
@@ -5,7 +7,6 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.proxy import Proxy, ProxyType
 from selenium.webdriver.firefox.options import Options
 from webdriverdownloader import GeckoDriverDownloader
-import os
 
 class SeleniumScraper(object):
     def __init__(self):
@@ -31,12 +32,12 @@ class SeleniumScraper(object):
             self.download_and_install()
             self.driver = webdriver.Firefox(options=options, firefox_profile=profile)
         if linkedin_email and linkedin_password:
-            print('Logging into linkedin account...')
+            glog.info('Logging into linkedin account...')
             self.driver.get('https://www.linkedin.com/uas/login')
             self.fill_id('username', linkedin_email)
             self.fill_id('password', linkedin_password)
             self.click_xpath('//button[@type="submit"]')
-            print('Logged in Linkedin as {}'.format(linkedin_email))
+            glog.info('Logged in Linkedin as {}'.format(linkedin_email))
 
     def download_and_install(self):
         gdd = GeckoDriverDownloader()

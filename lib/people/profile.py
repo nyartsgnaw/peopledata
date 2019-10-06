@@ -1,5 +1,6 @@
+import glog
 import datetime
-from models import init_env, linkedin_profiles
+from utils import file_cache
 from people import education, position, linkedin_base
 
 class Profile(object):
@@ -81,7 +82,7 @@ class Profile(object):
         pass
 
 if __name__ == '__main__':
-    init_env.loads()
     profile_obj = Profile()
-    linkedin_dict = list(linkedin_profiles.values())[0]
+    linkedin_dict = list(file_cache.cache['linkedin_profiles'].values())[0]
     profile_obj.from_linkedin(linkedin_dict)
+    glog.info(profile_obj)

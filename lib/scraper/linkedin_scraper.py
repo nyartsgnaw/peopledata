@@ -1,8 +1,9 @@
+import glog
+import os
 import json
 from collections import defaultdict
 from bs4 import BeautifulSoup
 from scraper import selenium_scraper
-import os
 
 class LinkedinScraper(selenium_scraper.SeleniumScraper):
     def __init__(self, linkedin_email='', linkedin_password=''):
@@ -27,5 +28,5 @@ class LinkedinScraper(selenium_scraper.SeleniumScraper):
         if not url:
             return
         self.extract_profile(url)
-        print(json.dumps(self.data, indent=4, sort_keys=True))
+        glog.info(json.dumps(self.data, indent=4, sort_keys=True))
         return self.data
