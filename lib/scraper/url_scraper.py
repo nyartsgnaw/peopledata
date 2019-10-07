@@ -14,7 +14,8 @@ class URLScraper(selenium_scraper.SeleniumScraper):
 		self.domain = domain
 		self.strict = strict
 		self.site = site
-		self.size_return = size_return        
+		self.size_return = size_return
+		self.page_size = 10
 
 	def generate_google_api(self, search_term, page_start_id=''):
 		search_term = search_term.replace(' ', '%20')
@@ -22,7 +23,7 @@ class URLScraper(selenium_scraper.SeleniumScraper):
 			search_term = '%22' + search_term + '%22'
 		if self.site:
 			search_term += ' site:' + self.site
-		ggurl = 'http://www.google' + self.domain + '/search?q=' + search_term + '&num=100'
+		ggurl = 'http://www.google' + self.domain + '/search?q=' + search_term + '&num={}'.format(self.page_size)
 		if page_start_id:
 			ggurl = ggurl + '&start=' + str(page_start_id)
 		return ggurl
@@ -50,12 +51,12 @@ class URLScraper(selenium_scraper.SeleniumScraper):
 
 	def get_urls(self, search_term):
 		n_urls = 0
-		for page_start_id in range(0, 100 * int(np.floor(self.size_return / 10)), 100):
+		for page_start_id in range(0, self.page_size * int(np.floor(self.size_return / self.page_size)), self.page_size):
 			ggurl = self.generate_google_api(search_term, page_start_id)
 			self.extract_urls(ggurl)
 			if n_urls < len(self.urls) and len(self.urls) < self.size_return:
 				n_urls = len(self.urls)
-				time.sleep(np.random.randint(5, 15))
+				time.sleep(np.random.randint(10, 30))
 			else:  
 				break
 		glog.info('Got {} results from {}'.format(len(self.urls), search_term))

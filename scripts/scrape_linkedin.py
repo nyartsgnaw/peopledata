@@ -10,10 +10,9 @@ if __name__ == '__main__':
     if not file_cache.cache['linkedin_urls']:
         raise(Exception('Run scrape_google.py first since you don\' have any scraped urls cached at ./data/cache/linkedin_urls.txt'))
     for url in tqdm(file_cache.get_linkedin_urls()):
+        linkedin_profiles = {}
         if url in file_cache.cache['linkedin_profiles']:
             continue
-        linkedin_profiles = {}
-        data = lscraper.get_profile(url)
-        if data:
-            linkedin_profiles[url] = data
+        linkedin_profiles[url] = lscraper.get_profile(url)
+        if linkedin_profiles[url]:
             file_cache.update_local_json_cache(linkedin_profiles, 'linkedin_profiles')

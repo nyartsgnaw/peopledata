@@ -19,7 +19,6 @@ if __name__ == '__main__':
 		if search_term in file_cache.cache['linkedin_urls']:
 			glog.info('Skipping searched term {}'.format(search_term))
 			continue
-		urls = uscraper.get_urls(search_term)
-		if any(urls):
-			linkedin_urls[search_term] = urls
+		linkedin_urls[search_term] = uscraper.get_urls(search_term)
+		if any(linkedin_urls[search_term]):
 			file_cache.update_local_json_cache(linkedin_urls, 'linkedin_urls')
