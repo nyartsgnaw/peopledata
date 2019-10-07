@@ -1,6 +1,11 @@
 # peopledata
 
 ### 1.install Firefox [here](https://www.mozilla.org/en-US/firefox/new/)
+On Ubuntu
+```
+sudo apt-get update
+sudo apt install firefox
+```
 
 ### 2.initialize environment:
 ```
