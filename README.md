@@ -9,9 +9,16 @@ sudo apt install firefox
 
 ### 2.initialize environment:
 ```
-export CODEPATH=$HOME/peopledata
-bash $CODEPATH/init_env/init.sh
+# create and activate peopledata environment
+conda create -n [ENVIRONMENT_NAME]
+
+# enter the project directory and install python requirements
+pip install -r ./init_env/requirements.txt
+
+# install customized packages
+pip install -e .
 ```
+
 
 
 ### 3. run google URLs scraper
